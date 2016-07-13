@@ -26,9 +26,3 @@ config :logger, :console,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
 
-  config :ex_admin,
-    repo: Admin2.Repo,
-    module: Admin2,
-    modules: [
-      # Admin2.ExAdmin.Dashboard,
-    ]
