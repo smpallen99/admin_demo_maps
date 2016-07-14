@@ -1,5 +1,6 @@
 defmodule Admin2.Router do
   use Admin2.Web, :router
+  use ExAdmin.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -17,6 +18,11 @@ defmodule Admin2.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+  end
+
+  scope "/admin", ExAdmin do
+    pipe_through :browser
+    admin_routes
   end
 
   # Other scopes may use custom stacks.
