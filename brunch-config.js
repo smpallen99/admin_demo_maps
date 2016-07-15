@@ -10,14 +10,15 @@ exports.config = {
       }
     },
     stylesheets: {
-      joinTo: "css/app.css",
+      joinTo: {
+        "css/app.css": /^(web\/static\/css)/,
+        "css/admin_lte2.css": ["web/static/vendor/admin_lte2.css"],
+        "css/active_admin.css": ["web/static/vendor/active_admin.css.css"],
+      },
       order: {
         after: ["web/static/css/app.css"] // concat app.css last
       }
     },
-    templates: {
-      joinTo: "js/app.js"
-    }
   },
 
   conventions: {

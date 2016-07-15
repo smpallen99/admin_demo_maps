@@ -35,4 +35,5 @@ config :ex_admin,
   modules: [
     Admin2.ExAdmin.Dashboard,
     Admin2.ExAdmin.Post,
+    Admin2.ExAdmin.User
   ]
