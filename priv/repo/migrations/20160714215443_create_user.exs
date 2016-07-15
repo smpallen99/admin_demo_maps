@@ -6,6 +6,8 @@ defmodule Admin2.Repo.Migrations.CreateUser do
       add :name, :string
       add :nicknames, {:array, :string}
       add :tokens, {:array, :integer}
+      add :addresses, {:array, :map}
+      add :stats, :map
 
       timestamps()
     end

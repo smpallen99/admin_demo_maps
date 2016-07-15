@@ -5,6 +5,8 @@ defmodule Admin2.User do
     field :name, :string
     field :nicknames, {:array, :string}
     field :tokens, {:array, :integer}
+    field :addresses, {:array, :map}
+    field :stats, :map
 
     timestamps()
   end
@@ -13,20 +15,17 @@ defmodule Admin2.User do
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
-    params = format_nicknames params
+    # params = format_nicknames params
     struct
-    |> cast(params, [:name, :nicknames, :tokens])
-    |> format_nicknames
-    |> validate_required([:name, :nicknames])
+    |> cast(params, [:name, :nicknames, :tokens, :addresses, :stats])
+    # |> format_nicknames
+    |> validate_required([:name])
   end
 
-  def format_nicknames(%{"nicknames" => nicknames} = params) when is_binary(nicknames) do
-    Map.put params, "nicknames", String.split(nicknames, " ")
-  end
-  # def format_nicknames(%{nicknames: nicknames} = params) do
-  #   Map.put params, :nicknames, String.split(nicknames, " ")
+  # def format_nicknames(%{"nicknames" => nicknames} = params) when is_binary(nicknames) do
+  #   Map.put params, "nicknames", String.split(nicknames, " ")
   # end
-  def format_nicknames(params) do
-    params
-  end
+  # def format_nicknames(params) do
+  #   params
+  # end
 end

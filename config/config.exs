@@ -32,6 +32,7 @@ config :xain, :after_callback, {Phoenix.HTML, :raw}
 config :ex_admin,
   repo: Admin2.Repo,
   module: Admin2,
+  logger: true,
   modules: [
     Admin2.ExAdmin.Dashboard,
     Admin2.ExAdmin.Post,
