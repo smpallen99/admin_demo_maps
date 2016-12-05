@@ -1,5 +1,6 @@
 defmodule Admin2.User do
   use Admin2.Web, :model
+  require Logger
 
   schema "users" do
     field :name, :string
@@ -15,17 +16,10 @@ defmodule Admin2.User do
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
-    # params = format_nicknames params
     struct
     |> cast(params, [:name, :nicknames, :tokens, :addresses, :stats])
-    # |> format_nicknames
     |> validate_required([:name])
+    |> validate_length(:name, min: 3)
   end
 
-  # def format_nicknames(%{"nicknames" => nicknames} = params) when is_binary(nicknames) do
-  #   Map.put params, "nicknames", String.split(nicknames, " ")
-  # end
-  # def format_nicknames(params) do
-  #   params
-  # end
 end

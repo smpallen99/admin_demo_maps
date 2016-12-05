@@ -37,7 +37,8 @@ defmodule Admin2.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:ex_admin, path: "../../ex_admin"},
+     # {:ex_admin, path: "../../ex_admin"},
+     {:ex_admin, github: "smpallen99/ex_admin"},
      {:cowboy, "~> 1.0"}]
   end
 

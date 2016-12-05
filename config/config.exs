@@ -20,7 +20,7 @@ config :admin2, Admin2.Endpoint,
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+  metadata: [:request_id, :module, :function, :line]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
@@ -31,6 +31,7 @@ config :xain, :after_callback, {Phoenix.HTML, :raw}
 
 config :ex_admin,
   repo: Admin2.Repo,
+  # theme: ExAdmin.Theme.ActiveAdmin,
   module: Admin2,
   logger: true,
   modules: [
